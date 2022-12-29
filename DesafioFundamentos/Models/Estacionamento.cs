@@ -2,14 +2,14 @@ namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
-        private decimal PrecoInicial = 0;
-        private decimal PrecoPorHora = 0;
-        private List<string> Veiculos = new List<string>();
+        private decimal precoInicial = 0;
+        private decimal precoPorHora = 0;
+        private List<string> veiculos = new List<string>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
-            this.PrecoInicial = precoInicial;
-            this.PrecoPorHora = precoPorHora;
+            this.precoInicial = precoInicial;
+            this.precoPorHora = precoPorHora;
         }
 
         public void AdicionarVeiculo()
@@ -19,7 +19,7 @@ namespace DesafioFundamentos.Models
 
             string placa = Console.ReadLine();
 
-            Veiculos.Add(placa);
+            veiculos.Add(placa);
 
             Console.WriteLine("Veiculo estacionado!");
 
@@ -33,17 +33,17 @@ namespace DesafioFundamentos.Models
             string placa = Console.ReadLine();
 
             // Verifica se o veículo existe
-            if (Veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
                 //implementado
                 int horas = int.Parse(Console.ReadLine());
-                decimal valorTotal = PrecoInicial + PrecoPorHora * horas; 
+                decimal valorTotal = precoInicial + precoPorHora * horas; 
 
                 
                 //implementado
-                if(Veiculos.Remove(placa)){
+                if(veiculos.Remove(placa)){
                     Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
                 }else{
                     Console.WriteLine($"Erro ao remover o veiculo de placa: {placa}");
@@ -58,14 +58,14 @@ namespace DesafioFundamentos.Models
         public void ListarVeiculos()
         {
             // Verifica se há veículos no estacionamento
-            if (Veiculos.Any())
+            if (veiculos.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
 
                 //implementado
                 int count = 0;
 
-                Veiculos.ForEach((veiculo)=>{
+                veiculos.ForEach((veiculo)=>{
                     Console.WriteLine($"Veiculo {count}: {veiculo}");
                     count++;
                 });
