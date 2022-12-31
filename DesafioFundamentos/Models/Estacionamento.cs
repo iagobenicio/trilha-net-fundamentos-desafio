@@ -63,12 +63,11 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Os veículos estacionados são:");
 
                 //implementado
-                int count = 0;
-
-                veiculos.ForEach((veiculo)=>{
-                    Console.WriteLine($"Veiculo {count}: {veiculo}");
-                    count++;
-                });
+                
+                for (int count = 0; count < veiculos.Count; count++)
+                {
+                    Console.WriteLine($"Veiculo {count + 1}: {veiculos[count]}");
+                }
 
             }
             else
